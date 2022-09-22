@@ -1,0 +1,29 @@
+import colorgram
+from PIL import Image
+
+my_image = Image.open("image.jpg")
+
+# my_image.show()
+
+colors = colorgram.extract(my_image, 6)
+
+my_list = []
+for i in colors:
+    my_list.append(i.rgb)
+
+print(my_list)
+
+import colorgram
+
+rgb_colors = []
+colors = colorgram.extract("image.jpg", 10)
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.g
+    b = color.rgb.b
+    new_color = (r, g, b)
+    rgb_colors.append(new_color)
+
+print(rgb_colors)
+
+color_list = [(236, 209, 71), (179, 54, 47), (242, 234, 237), (180, 163, 150), (234, 239, 234), (25, 19, 22)]
