@@ -1,0 +1,90 @@
+from turtle import Turtle, Screen
+import random
+from color import color_list
+
+tim = Turtle()
+# tim.color("red")
+# tim.shape("turtle")
+
+# for i in range(0, 4):
+#     tim.forward(100)
+#     tim.right(90)
+
+# for i in range(15):
+#     tim.forward(10)
+#     tim.penup()
+#     tim.forward(10)
+#     tim.pendown()
+
+# sides = 3
+# angle = 360 / sides
+# end = True
+
+# while end:
+#     tim.color(random.random(), random.random(), random.random())
+#     for i in range(0, sides):
+#         tim.forward(100)
+#         tim.right(angle)
+#     sides += 1
+#     angle = 360 / sides
+#
+#     if sides == 11:
+#         end = False
+#         break
+
+
+# end = True
+# tim.speed("fastest")
+# tim.pensize(2)
+#
+#
+# while end:
+#     tim.color(random.random(), random.random(), random.random())
+#     if random.choice([True, False]):
+#         tim.forward(random.choice([-50,50]))
+#     if random.choice([True, False]):
+#         tim.right(random.choice([90, 270]))
+
+# for i in range(0, 360):
+#     tim.color(random.random(), random.random(), random.random())
+#     current_heading = tim.heading()
+#     tim.circle(150)
+#     tim.setheading(current_heading + 1)
+
+
+# TODO: Pint a painting with 10 x 10 dots, 20 size and space out by 50
+screen = Screen()
+screen.colormode(255)
+
+def row():
+    for i in range(10):
+        color_choice = random.choice(color_list)
+        r = color_choice[0]
+        g = color_choice[1]
+        b = color_choice[2]
+        tim.color(r, g, b)
+        tim.dot(20)
+        tim.penup()
+        tim.forward(50)
+        tim.pendown()
+
+tim.penup()
+tim.sety(-250)
+tim.setx(-250)
+tim.pendown()
+
+def column():
+    for x in range(10):
+        row()
+        tim.penup()
+        tim.speed("fastest")
+        tim.setx(-250)
+        tim.left(90)
+        tim.forward(50)
+        tim.right(90)
+        tim.pendown()
+
+
+column()
+
+screen.exitonclick()
